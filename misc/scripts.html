@@ -1,0 +1,101 @@
+<script>
+    var $ = jQuery;
+    $(function () {
+        // Troca labels do formulário de confirmação
+        var form = $('form.em-booking-form');
+        var inputs = form.find('#user_name, #dbem_phone, #user_email, textarea');
+        var placeholders = ['Seu nome', 'Telefone', 'E-mail', 'Deixe uma mensagem para os noivos'];
+
+        for (let i = 0, l = inputs.length; i < l; i++) {
+            var field = $(inputs[i]).parent('p');
+            field.find('label').css('display', 'none');
+            field.find('input, textarea').attr('placeholder', placeholders[i]);
+        }
+
+        if (inputs.length === 1) {
+            field.find('textarea').attr('placeholder', placeholders[3]);
+        }
+
+        var ticketsSpaces = $('.em-tickets-spaces')
+        ticketsSpaces.find('label')
+            .text('Pessoas no grupo')
+            .css('width', '150px');
+
+        // Remove a opção de pessoas no grupo
+        ticketsSpaces.css('display', 'none');
+
+        // Altera título do formulário
+        $("h3:contains('Bookings')").text("Confirmar presença");
+
+        // Altera a ordem e idioma da data
+        $(".entry-date:contains('April 18, 2020')").text('18 de Abril, 2020');
+
+        // Reorganiza os elementos
+        if ($('#em-booking').length) {
+            var content = $('.entry-content');
+            var form = $('#em-booking');
+            var formTitle = content.find('h3');
+
+            var wrapper = $('<div>').addClass('form-wrapper');
+            wrapper.append(
+                formTitle,
+                form
+            );
+
+            var infoTitle = $('<h3>').text('Hora e local');
+            var info = $('<div>').addClass('info');
+            info.append(
+                infoTitle,
+                content.children()
+            );
+
+            content.append(
+                wrapper,
+                info
+            );
+        }
+    });
+</script>
+
+<style>
+    .form-wrapper {
+        margin-bottom: 40px;
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .form-wrapper h3 {
+        display: none;
+    }
+
+    .em-booking-form-details,
+    .form-wrapper input,
+    .form-wrapper textarea {
+        width: 600px !important;
+    }
+
+    .form-wrapper textarea {
+        height: 120px;
+    }
+
+    .site-header .header-bottom-right .search-icon {
+        display: none;
+    }
+
+    .site-header-main {
+        display: none;
+    }
+
+    @media (max-width: 650px) {
+
+        .em-booking-form-details,
+        .form-wrapper input,
+        .form-wrapper textarea {
+            width: 100% !important;
+        }
+    }
+</style>

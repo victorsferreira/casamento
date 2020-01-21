@@ -5,3 +5,8 @@ sudo ssh -i "misc/_casamento.pem" ubuntu@ec2-3-82-231-140.compute-1.amazonaws.co
 	Require all granted
 </Directory>
 
+<VirtualHost *:80>
+	ServerName www.casamentoalinevictor.com.br
+	ServerAlias casamentoalinevictor.com.br *.casamentoalinevictor.com.br
+	DocumentRoot /www/casamento
+</VirtualHost>

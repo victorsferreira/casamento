@@ -13,7 +13,7 @@ RewriteRule . /casamento/index.php [L]
 
 #Options +FollowSymLinks
 #RewriteEngine on
-#RewriteRule ^(.*)$ http://www.casamentoalinevictor.com.br/$1 [R=301,L]
+#RewriteRule ^(.*)$ http://www.example.COM/$1 [R=301,L]
 </IfModule>
 
 # END WordPress

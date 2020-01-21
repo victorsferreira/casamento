@@ -1,0 +1,7 @@
+sudo ssh -i "misc/_casamento.pem" ubuntu@ec2-3-82-231-140.compute-1.amazonaws.com
+
+<Directory /var/www/html/casamento>
+	AllowOverride All
+	Require all granted
+</Directory>
+
